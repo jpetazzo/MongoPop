@@ -21,7 +21,7 @@ try {
   var environment = JSON.parse(fs.readFileSync('../environment.json', 'utf-8'));
   
   if (environment.DOTCLOUD_MONGO_MONGODB_URL) {
-    dotcloudMongoDB = environment.DOTCLOUD_MONGO_MONGODB_URL + '/mongopop'
+    dotcloudMongoDB = environment.DOTCLOUD_MONGO_MONGODB_URL + '/admin'
   }
   
 } catch(err) {
@@ -29,7 +29,7 @@ try {
 }
 
 if (!dotcloudMongoDB && process.env.DOTCLOUD_MONGO_MONGODB_URL) {
-  dotcloudMongoDB = process.env.DOTCLOUD_MONGO_MONGODB_URL + '/mongopop'
+  dotcloudMongoDB = process.env.DOTCLOUD_MONGO_MONGODB_URL + '/admin'
 }
 
 var connectionString = process.env.MONGOLAB_URI || process.env.MONGO_URI || 
